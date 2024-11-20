@@ -8,10 +8,11 @@ namespace P2FixAnAppDotNetCode.Models
     /// </summary>
     public class Cart : ICart
     {
+        private readonly List<CartLine> _cartLines = new List<CartLine>();
         /// <summary>
         /// Read-only property for display only
         /// </summary>
-        public IEnumerable<CartLine> Lines => GetCartLineList();
+        public IEnumerable<CartLine> Lines => _cartLines;
 
         /// <summary>
         /// Return the actual cartline list
@@ -28,13 +29,25 @@ namespace P2FixAnAppDotNetCode.Models
         public void AddItem(Product product, int quantity)
         {
             // TODO implement the method
+            bool productExists = _cartLines.Exists(line => line.Product.Id == product.Id);
+
+            if (productExists)
+            {
+                // Si le produit existe déjà, incrémente la quantité
+                var existingLine = _cartLines.First(line => line.Product.Id == product.Id);
+                existingLine.Quantity += quantity;
+            }
+            else
+            {
+                _cartLines.Add(new CartLine { Product = product, Quantity = quantity });
+            }
         }
 
         /// <summary>
         /// Removes a product form the cart
         /// </summary>
         public void RemoveLine(Product product) =>
-            GetCartLineList().RemoveAll(l => l.Product.Id == product.Id);
+            _cartLines.RemoveAll(l => l.Product.Id == product.Id);
 
         /// <summary>
         /// Get total value of a cart
@@ -76,7 +89,7 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public void Clear()
         {
-            List<CartLine> cartLines = GetCartLineList();
+            List<CartLine> cartLines = _cartLines;
             cartLines.Clear();
         }
     }
