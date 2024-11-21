@@ -22,7 +22,7 @@ namespace P2FixAnAppDotNetCode.Models
         {
             return new List<CartLine>();
         }
-
+       
         /// <summary>
         /// Adds a product in the cart or increment its quantity in the cart if already added
         /// </summary>//
@@ -31,24 +31,24 @@ namespace P2FixAnAppDotNetCode.Models
             // TODO implement the method
             bool productExists = _cartLines.Exists(line => line.Product.Id == product.Id);
 
-            if (productExists)
-            {
-                // Si le produit existe déjà, incrémente la quantité
-                var existingLine = _cartLines.First(line => line.Product.Id == product.Id);
-                existingLine.Quantity += quantity;
+                if (productExists)
+                {
+                    // Si le produit existe déjà, incrémente la quantité
+                    var existingLine = _cartLines.First(line => line.Product.Id == product.Id);
+                    existingLine.Quantity += quantity;
+                }
+                else
+                {
+                    _cartLines.Add(new CartLine { Product = product, Quantity = quantity });
+                }
             }
-            else
-            {
-                _cartLines.Add(new CartLine { Product = product, Quantity = quantity });
-            }
-        }
-
+ 
         /// <summary>
         /// Removes a product form the cart
         /// </summary>
         public void RemoveLine(Product product) =>
             _cartLines.RemoveAll(l => l.Product.Id == product.Id);
-
+           
         /// <summary>
         /// Get total value of a cart
         /// </summary>
@@ -75,7 +75,14 @@ namespace P2FixAnAppDotNetCode.Models
                 totalItem += line.Quantity;
             }
             double averageValue = GetTotalValue()/totalItem;
-            return averageValue;
+            if (double.IsNaN(averageValue))
+            {
+                return 0;
+            }
+            else
+            {
+                return averageValue;
+            }
         }
 
         /// <summary>
