@@ -31,6 +31,9 @@ namespace P2FixAnAppDotNetCode.Models
             // TODO implement the method
             bool productExists = _cartLines.Exists(line => line.Product.Id == product.Id);
 
+            if (product.Stock > 0)
+            {
+                product.Stock--;
                 if (productExists)
                 {
                     // Si le produit existe déjà, incrémente la quantité
@@ -42,13 +45,29 @@ namespace P2FixAnAppDotNetCode.Models
                     _cartLines.Add(new CartLine { Product = product, Quantity = quantity });
                 }
             }
- 
+            else
+            {
+            }
+        }
+
         /// <summary>
         /// Removes a product form the cart
         /// </summary>
-        public void RemoveLine(Product product) =>
-            _cartLines.RemoveAll(l => l.Product.Id == product.Id);
-           
+        public void RemoveLine(Product product)
+        {
+            var cartLine = _cartLines.FirstOrDefault(l => l.Product.Id == product.Id);
+            product.Stock++;
+            if (cartLine.Quantity > 1)
+            {
+                cartLine.Quantity--;
+            }
+            else
+            {
+                _cartLines.RemoveAll(l => l.Product.Id == product.Id);
+
+            }
+        }
+
         /// <summary>
         /// Get total value of a cart
         /// </summary>
