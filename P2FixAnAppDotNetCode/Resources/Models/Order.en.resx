@@ -129,4 +129,7 @@
   <data name="ErrorMissingName" xml:space="preserve">
     <value>No name</value>
   </data>
+  <data name="ErrorMissingZip" xml:space="preserve">
+    <value>Just Do It</value>
+  </data>
 </root>
