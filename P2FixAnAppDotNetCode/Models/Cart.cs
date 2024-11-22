@@ -23,18 +23,20 @@ namespace P2FixAnAppDotNetCode.Models
         {
             return new List<CartLine>();
         }
-       
+        public int GetQuantity(Product product)
+        {
+            var line = _cartLines.FirstOrDefault(l => l.Product.Id == product.Id);
+            return line?.Quantity ?? 0; // Retourne 0 si le produit n'est pas dans le panier
+        }
         /// <summary>
         /// Adds a product in the cart or increment its quantity in the cart if already added
         /// </summary>//
         public void AddItem(Product product, int quantity)
         {
-            // TODO implement the method
             bool productExists = _cartLines.Exists(line => line.Product.Id == product.Id);
 
                 if (productExists)
                 {
-                    // Si le produit existe déjà, incrémente la quantité
                     var existingLine = _cartLines.First(line => line.Product.Id == product.Id);
                     existingLine.Quantity += quantity;
                 }
@@ -66,7 +68,6 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public double GetTotalValue()
         {
-            // TODO implement the method
             double totalValue = 0;
             foreach (var line in _cartLines)
             {
@@ -80,7 +81,6 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public double GetAverageValue()
         {
-            // TODO implement the method
             int totalItem = 0;
             foreach (var line in _cartLines)
             {
@@ -102,7 +102,6 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public Product FindProductInCartLines(int productId)
         {
-            // TODO implement the method
             foreach (var line in _cartLines)
             {
                 if (productId==line.Product.Id)

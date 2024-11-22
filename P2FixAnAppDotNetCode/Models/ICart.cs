@@ -12,5 +12,7 @@ namespace P2FixAnAppDotNetCode.Models
         double GetTotalValue();
 
         double GetAverageValue();
+
+        int GetQuantity(Product product);
     }
 }

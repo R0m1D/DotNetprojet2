@@ -45,7 +45,7 @@ namespace P2FixAnAppDotNetCode.Models.Services
             return product; // Retourne null si aucun produit n'est trouvé
         }
 
-
+       
         /// <summary>
         /// Update the quantities left for each product in the inventory depending of ordered the quantities
         /// </summary>
