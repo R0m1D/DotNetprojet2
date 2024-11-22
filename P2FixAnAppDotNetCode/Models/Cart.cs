@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace P2FixAnAppDotNetCode.Models
@@ -57,7 +58,6 @@ namespace P2FixAnAppDotNetCode.Models
             else
             {
                 _cartLines.RemoveAll(l => l.Product.Id == product.Id);
-
             }
         }
 
