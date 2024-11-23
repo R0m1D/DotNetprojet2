@@ -29,17 +29,14 @@ namespace P2FixAnAppDotNetCode.Controllers
 
             if (product != null)
             {
-                if (currentQuantity >= product.Stock)
-                {
-                    TempData[$"ErrorNoStock_{id}"] = $"Il ne reste plus de stock pour {product.Name}.";
-                    TempData["ErrorProductId"] = id;
-                    return RedirectToAction("Index");
-
-                }
                 if (currentQuantity >= product.Stock - 1)
                 {
                     TempData[$"ErrorNoStock_{id}"] = $"Il ne reste plus de stock pour {product.Name}.";
                     TempData["ErrorProductId"] = id;
+                }
+                if (currentQuantity >= product.Stock)
+                {
+                    return RedirectToAction("Index");
                 }
                 _cart.AddItem(product, 1);
                 return RedirectToAction("Index");

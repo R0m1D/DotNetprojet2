@@ -12,7 +12,6 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
 
         public ProductRepository()
         {
-            // Initialiser les produits uniquement si la liste est null
             if (_products == null)
             {
                 _products = new List<Product>();
