@@ -34,22 +34,9 @@
     <td>
         <form id="@p.Id" asp-action="AddToCart" asp-controller="Cart" method="post">
             <input type="hidden" name="id" value="@p.Id" />
-
-            <!-- Show the Add to Cart button only if there's no stock error -->
-            @if (TempData[$"ErrorNoStock_{p.Id}"] == null)
-            {
                 <button type="submit" class="btn btn-primary">
                     @Localizer["AddToCart"]
                 </button>
-            }
-
-            <!-- Show error message if stock error exists -->
-            @if (TempData[$"ErrorNoStock_{p.Id}"] != null)
-            {
-                <div class="alert alert-danger mt-2">
-                    @TempData[$"ErrorNoStock_{p.Id}"]
-                </div>
-            }
         </form>
     </td>
 </tr>
