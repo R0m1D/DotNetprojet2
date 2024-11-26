@@ -117,35 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="Checkout" xml:space="preserve">
+  <data name="Checkout" xml:space="preserve">
     <value>checkout</value>
-    </data>
+  </data>
   <data name="ContinueShopping" xml:space="preserve">
-    <value>a</value>
+    <value>Continue SHopping</value>
   </data>
   <data name="Item" xml:space="preserve">
-    <value>a</value>
+    <value>item</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>a</value>
+    <value>price</value>
   </data>
   <data name="Quantity" xml:space="preserve">
-    <value>a</value>
+    <value>quantite</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>a</value>
+    <value>remove</value>
   </data>
   <data name="Subtotal" xml:space="preserve">
-    <value>a</value>
+    <value>subtotal</value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>a</value>
+    <value>total</value>
   </data>
   <data name="YourCart" xml:space="preserve">
     <value>votre panier</value>
   </data>
   <data name="Average" xml:space="preserve">
-    <value>a</value>
+    <value>Average</value>
   </data>
 </root>

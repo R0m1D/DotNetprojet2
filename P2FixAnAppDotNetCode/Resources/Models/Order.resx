@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErrorMissingAddress" xml:space="preserve">
-    <value>ErrorMissingAdress</value>
+    <value>adress</value>
   </data>
   <data name="ErrorMissingCity" xml:space="preserve">
-    <value>a</value>
+    <value>city</value>
   </data>
   <data name="ErrorMissingCountry" xml:space="preserve">
-    <value>a</value>
+    <value>country</value>
   </data>
   <data name="ErrorMissingName" xml:space="preserve">
-    <value>ErrorMissingName</value>
+    <value>name</value>
   </data>
   <data name="ErrorMissingZip" xml:space="preserve">
     <value>C'est pas obligatoire mais tu vas quand même le mettre</value>

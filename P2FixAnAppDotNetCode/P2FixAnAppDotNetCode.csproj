@@ -49,6 +49,9 @@
     <EmbeddedResource Update="Resources\Models\ViewModels\LanguageViewModel.es.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Product\Index - Copier.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\Shared\Components\LanguageSelector\Default.es.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

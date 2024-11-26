@@ -35,16 +35,16 @@ namespace P2FixAnAppDotNetCode.Models
         {
             bool productExists = _cartLines.Exists(line => line.Product.Id == product.Id);
 
-                if (productExists)
-                {
-                    var existingLine = _cartLines.First(line => line.Product.Id == product.Id);
-                    existingLine.Quantity += quantity;
-                }
-                else
-                {
-                    _cartLines.Add(new CartLine { Product = product, Quantity = quantity });
-                }
+            if (productExists)
+            {
+                var existingLine = _cartLines.First(line => line.Product.Id == product.Id);
+                existingLine.Quantity += quantity;
             }
+            else
+            {
+                _cartLines.Add(new CartLine { Product = product, Quantity = quantity });
+            }
+        }
 
         /// <summary>
         /// Removes a product form the cart
@@ -52,14 +52,16 @@ namespace P2FixAnAppDotNetCode.Models
         public void RemoveLine(Product product)
         {
             var cartLine = _cartLines.FirstOrDefault(l => l.Product.Id == product.Id);
-            
-            if (cartLine.Quantity > 1)
+            if (cartLine != null)
             {
-                cartLine.Quantity--;
-            }
-            else
-            {
-                _cartLines.RemoveAll(l => l.Product.Id == product.Id);
+                if (cartLine.Quantity > 1)
+                {
+                    cartLine.Quantity--;
+                }
+                else
+                {
+                    _cartLines.RemoveAll(l => l.Product.Id == product.Id);
+                }
             }
         }
 

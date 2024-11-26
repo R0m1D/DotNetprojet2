@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddToCart" xml:space="preserve">
-    <value>a</value>
+    <value>Add to cart</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>a</value>
+    <value>Description</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>a</value>
+    <value>name</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>a</value>
+    <value>price</value>
   </data>
   <data name="ProductList" xml:space="preserve">
-    <value>a</value>
+    <value>product list</value>
   </data>
   <data name="Stock" xml:space="preserve">
-    <value>a</value>
+    <value>stock</value>
   </data>
 </root>
